@@ -3,7 +3,7 @@ from flask import Flask , render_template
 from flask_sqlalchemy import SQLAlchemy
 import json
 
-with open('D:/rayhan-drive/flask/flask2/config.json','r', encoding='utf-8')  as c:
+with open('config.json','r', encoding='utf-8')  as c:
     paramiters=json.load(c)["paramiters"]
     
 panel = Flask(__name__)
