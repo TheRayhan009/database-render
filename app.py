@@ -2,8 +2,8 @@ from flask import request ,redirect ,url_for
 from flask import Flask , render_template
 from flask_sqlalchemy import SQLAlchemy
 import json
-
-with open('config.json','r', encoding='utf-8')  as c:
+import os
+with open('D:/rayhan-drive/flask/flask2/config.json','r', encoding='utf-8')  as c:
     paramiters=json.load(c)["paramiters"]
     
 panel = Flask(__name__)
@@ -26,4 +26,5 @@ def home():
     names=Sign_in.query.all()
     return render_template("home.html",user=names)
 
-panel.run(debug=True)
+port = int(os.environ.get('PORT', 5000))
+panel.run(host='0.0.0.0', port=port, debug=True)
